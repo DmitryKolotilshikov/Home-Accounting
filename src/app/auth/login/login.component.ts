@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.form = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(3)])    })
-
   }
 
   private showMessage(text: string, type: string = 'danger') {
@@ -55,7 +54,7 @@ export class LoginComponent implements OnInit {
             this.message.text = '';
             localStorage.setItem('user', JSON.stringify(user));
             this.authService.login();   
-            //this.router.navigate(['']);         
+            this.router.navigate(['/system', 'bill']);         
           } else {
             this.showMessage('Пароль не верный!')
           }

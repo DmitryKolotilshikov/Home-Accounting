@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
     const user = new User(email, password, name);
 
     this.usersService.createNewUser(user)
-    .subscribe((user: User) => {
+    .subscribe(() => {
        this.router.navigate(['/login'], {
          queryParams: {
            nowCanLogin: true
