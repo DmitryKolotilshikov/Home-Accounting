@@ -7,22 +7,10 @@
       "name": "Администратор"
     },
     {
-      "email": "m@mail.ru",
-      "name": "123",
-      "password": "Dim",
-      "id": 2
-    },
-    {
-      "email": "fordikrb@gmail.com",
-      "name": "123",
-      "password": "test",
-      "id": 3
-    },
-    {
-      "email": "fordikrb@gmail.com",
-      "name": "wewew",
-      "password": "wewewe",
-      "id": 4
+      "id": 2,
+      "email": "vid1@mail.ru",
+      "password": "12345",
+      "name": "Вася"
     }
   ],
   "bill": {

@@ -5,6 +5,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { Message } from 'src/app/shared/models/message.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { filter } from 'rxjs/operators';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -48,7 +50,7 @@ export class LoginComponent implements OnInit {
     const formData = this.form.value;
     
     this.usersService.getUserByEmail(formData.email)
-    .subscribe((user)=> {
+      .subscribe((user)=> {
       if (user) {
           if(user.password === formData.password) {
             this.message.text = '';
