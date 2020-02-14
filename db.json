@@ -14,8 +14,8 @@
     }
   ],
   "bill": {
-    "value": 100000,
-    "currency": "RUB"
+    "value": 2000,
+    "currency": "BYN"
   },
   "categories": [
     {
@@ -32,6 +32,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "new",
+      "capacity": 232423,
+      "id": 4
     }
   ],
   "events": [
