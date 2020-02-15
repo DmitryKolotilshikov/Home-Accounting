@@ -14,13 +14,13 @@
     }
   ],
   "bill": {
-    "value": 2000,
+    "value": 13000,
     "currency": "BYN"
   },
   "categories": [
     {
       "name": "Дом",
-      "capacity": 15000,
+      "capacity": 9000,
       "id": 1
     },
     {
@@ -29,14 +29,9 @@
       "id": 2
     },
     {
-      "id": 3,
       "name": "Машина",
-      "capacity": 7000
-    },
-    {
-      "name": "new",
-      "capacity": 232423,
-      "id": 4
+      "capacity": 9000,
+      "id": 3
     }
   ],
   "events": [
@@ -66,7 +61,7 @@
     },
     {
       "type": "outcome",
-      "amount": 2470,
+      "amount": 7470,
       "category": 2,
       "date": "17.06.2017 14:00:58",
       "id": 4,
@@ -74,7 +69,7 @@
     },
     {
       "type": "outcome",
-      "amount": 4000,
+      "amount": 6900,
       "category": 3,
       "date": "10.06.2017 14:01:58",
       "id": 5,

@@ -46,7 +46,7 @@
                 *ngIf="capacity.invalid && capacity.touched"
                 >Поле не может быть пустым</span>
             </div>
-            <button type="submit" class="btn btn-primary">Добавить</button>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Добавить</button>
         </form>
     </div>
 </div>
