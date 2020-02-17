@@ -51,7 +51,7 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
     }, 0)
   }
  
-  private getPercent(cat: Category): number {
+  getPercent(cat: Category): number {
       const percent = (100 * this.getCategoryCost(cat)) / cat.capacity;
       return percent > 100 ? 100 : percent;
   }

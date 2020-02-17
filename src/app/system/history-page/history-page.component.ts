@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { combineLatest, Subscription } from 'rxjs';
+
 import { CategoriesService } from '../shared/services/categories.service';
 import { EventsService } from '../shared/services/events.service';
-import { combineLatest, Subscription } from 'rxjs';
+
 import { Category } from '../shared/models/category.model';
 import { appEvent } from '../shared/models/event.model';
 
@@ -42,7 +44,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.chartData = [];
 
       this.categories.forEach(cat => {
-        const dataEvents = this.events.filter( e => e.categories === cat.id && e.type === 'outcome');
+        const dataEvents = this.events.filter( e => e.category === cat.id && e.type === 'outcome');
         this.chartData.push({
           name: cat.name,
           value: dataEvents.reduce((total, event) => {

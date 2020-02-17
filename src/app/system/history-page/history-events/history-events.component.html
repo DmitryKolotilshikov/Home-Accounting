@@ -8,18 +8,22 @@
                     </div>
                     <div class="form-inline pull-right m-r-2">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Поиск...">
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            [placeholder]="searchPlaceholder"
+                            [(ngModel)]="searchValue"
+                            >
                         </div>
-                        <div class="btn-group">
+                        <div class="btn-group" appDropdown>
                             <button type="button" class="btn btn-secondary dropdown-toggle ">
                                 Параметр
                             </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
+                            <div class="dropdown-menu">                          
+                                <a class="dropdown-item" (click)="changeСriteria('amount')">Сумма</a>                                                        
+                                <a class="dropdown-item" (click)="changeСriteria('date')">Дата</a>
+                                <a class="dropdown-item" (click)="changeСriteria('category')">Категория</a>
+                                <a class="dropdown-item" (click)="changeСriteria('type')">Тип</a>
                             </div>
                         </div>
                     </div>
@@ -37,30 +41,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>44 444</td>
-                            <td>12.12.2017</td>
-                            <td>Товары</td>
-                            <td>
-                                <span class="label label-danger">Расход</span>
+                        <tr *ngFor="let e of events; let idx = index">
+                            <th scope="row">{{idx + 1}}</th>
+                            <td>{{e.amount}}</td>
+                            <td>{{e.date | appMoment:'DD.MM.YYYY'}}</td>
+                            <td>{{e.catName}}</td>
+                            <td>                                
+                                <span [ngClass]="getEventClass(e)">
+                                  <span *ngIf="e.type === 'income'">
+                                      Доход  
+                                  </span>
+                                  <span *ngIf="e.type === 'outcome'">
+                                      Расход  
+                                  </span>
+                                </span>
                             </td>
                             <td class="text-lg-center">
-                                <a href="#" class="btn btn-primary-outline">Открыть</a>
+                                <a class="btn btn-primary-outline">Открыть</a>
                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>33 333</td>
-                            <td>12.12.2017</td>
-                            <td>Отдых</td>
-                            <td>
-                                <span class="label label-success">Доход</span>
-                            </td>
-                            <td class="text-lg-center">
-                                <a href="#" class="btn btn-primary-outline">Открыть</a>
-                            </td>
-                        </tr>
+                        </tr>                        
                         </tbody>
                     </table>
                 </div>

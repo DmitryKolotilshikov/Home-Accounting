@@ -11,7 +11,7 @@
 <div *ngIf="isLoaded">
     <app-history-chart [data]="chartData"></app-history-chart>
 
-    <app-history-events></app-history-events>
+    <app-history-events [categories]="categories" [events]="events"></app-history-events>
     
     <app-history-filter></app-history-filter>
 </div>

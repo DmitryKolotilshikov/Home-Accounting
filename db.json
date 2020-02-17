@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 13000,
+    "value": 14000,
     "currency": "BYN"
   },
   "categories": [
@@ -74,6 +74,14 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "income",
+      "amount": 1000,
+      "category": 1,
+      "date": "16.02.2020 21:05:29",
+      "description": "Test",
+      "id": 6
     }
   ]
 }

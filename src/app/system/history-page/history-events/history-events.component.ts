@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '../../shared/models/category.model';
 
 @Component({
   selector: 'app-history-events',
@@ -7,9 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryEventsComponent implements OnInit {
 
+  @Input() categories: Category[] = [];
+  @Input() events = [];
+
+  searchValue = '';
+  searchPlaceholder = 'Сумма';
+  searchField = 'amount';
+  namesMaps = {
+    amount: 'Сумма',
+    date: 'Дата',
+    category: 'Категория',
+    type: 'Тип'
+  };
+  
   constructor() { }
 
   ngOnInit() {
+    this.events.forEach(e=>{
+      e.catName = this.categories.find(c => 
+        c.id === e.category
+    ).name
+    })
+  }
+
+  getEventClass(e: any) {
+    return {
+      'label': true,
+      'label-success': e.type === 'income',
+      'label-danger': e.type === 'outcome'
+    }
+  }
+  
+  changeСriteria(field: string): void { 
+    this.searchPlaceholder = this.namesMaps[field];
+    this.searchField = field;
   }
 
 }
