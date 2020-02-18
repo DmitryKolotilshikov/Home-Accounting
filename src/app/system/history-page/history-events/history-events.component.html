@@ -20,10 +20,10 @@
                                 Параметр
                             </button>
                             <div class="dropdown-menu">                          
-                                <a class="dropdown-item" (click)="changeСriteria('amount')">Сумма</a>                                                        
-                                <a class="dropdown-item" (click)="changeСriteria('date')">Дата</a>
-                                <a class="dropdown-item" (click)="changeСriteria('category')">Категория</a>
-                                <a class="dropdown-item" (click)="changeСriteria('type')">Тип</a>
+                                <a class="dropdown-item" (click)="changeCriteria('amount')">Сумма</a>                                                        
+                                <a class="dropdown-item" (click)="changeCriteria('date')">Дата</a>
+                                <a class="dropdown-item" (click)="changeCriteria('category')">Категория</a>
+                                <a class="dropdown-item" (click)="changeCriteria('type')">Тип</a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let e of events; let idx = index">
+                        <tr *ngFor="let e of events | appSearch:searchValue:searchField; let idx = index">
                             <th scope="row">{{idx + 1}}</th>
                             <td>{{e.amount}}</td>
                             <td>{{e.date | appMoment:'DD.MM.YYYY'}}</td>

@@ -39,7 +39,7 @@ export class HistoryEventsComponent implements OnInit {
     }
   }
   
-  changeСriteria(field: string): void { 
+  changeCriteria(field: string): void { 
     this.searchPlaceholder = this.namesMaps[field];
     this.searchField = field;
   }
