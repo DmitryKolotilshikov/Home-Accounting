@@ -43,7 +43,7 @@
                         <tbody>
                         <tr *ngFor="let e of events | appSearch:searchValue:searchField; let idx = index">
                             <th scope="row">{{idx + 1}}</th>
-                            <td>{{e.amount}}</td>
+                            <td>{{e.amount}} руб.</td>
                             <td>{{e.date | appMoment:'DD.MM.YYYY'}}</td>
                             <td>{{e.catName}}</td>
                             <td>                                
@@ -57,7 +57,7 @@
                                 </span>
                             </td>
                             <td class="text-lg-center">
-                                <a class="btn btn-primary-outline">Открыть</a>
+                                <a class="btn btn-primary-outline" [routerLink]="[e.id]">Открыть</a>
                             </td>
                         </tr>                        
                         </tbody>

@@ -10,7 +10,9 @@ export class SearchPipe implements PipeTransform {
         }   
 
         return items.filter( (i) => {
-            const t = Object.assign({}, i);
+            const t = Object.assign({}, i); //т.к. items это ссылка на оригинальный обьект, 
+                                           //то методом Object.assign() делается глубокая копия обьекта
+           
             if(!isNaN(t[field])) {
                 t[field] += '';
             }
