@@ -20,7 +20,9 @@ export class HistoryFilterComponent  {
   timePeriods = [
     { type: 'd', label: 'День'},
     { type: 'w', label: 'Неделя'},
-    { type: 'M', label: 'Месяц'}
+    { type: 'M', label: 'Месяц'},
+    { type: 'Y', label: 'Год'},
+    { type: '2019', label: '2019 Год'}
   ];
 
   typeEvents = [

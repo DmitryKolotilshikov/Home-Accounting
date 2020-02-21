@@ -40,7 +40,7 @@
       "type": "income",
       "amount": 1250,
       "category": 2,
-      "date": "12.06.2017 19:49:02",
+      "date": "12.02.2020 19:49:02",
       "description": "Подарили еду в гостях"
     },
     {
@@ -48,14 +48,14 @@
       "type": "outcome",
       "amount": 1300,
       "category": 1,
-      "date": "13.06.2017 19:49:02",
+      "date": "13.01.2020 19:49:02",
       "description": "Купил посудомоечную машину"
     },
     {
       "type": "income",
       "amount": 1480,
       "category": 2,
-      "date": "17.06.2017 14:00:48",
+      "date": "17.01.2020 14:00:48",
       "id": 3,
       "description": "Поход в окей с баллами. Бесплатная еда"
     },
@@ -63,7 +63,7 @@
       "type": "outcome",
       "amount": 7470,
       "category": 2,
-      "date": "17.06.2017 14:00:58",
+      "date": "19.02.2020 14:00:58",
       "id": 4,
       "description": "Закупка на неделю"
     },
@@ -71,7 +71,7 @@
       "type": "outcome",
       "amount": 6900,
       "category": 3,
-      "date": "10.06.2017 14:01:58",
+      "date": "10.01.2020 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
     },
@@ -82,6 +82,22 @@
       "date": "16.02.2020 21:05:29",
       "description": "Test",
       "id": 6
+    },
+    {
+      "type": "outcome",
+      "amount": 2000,
+      "category": 1,
+      "date": "01.01.2019 21:05:29",
+      "description": "Test",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 1500,
+      "category": 2,
+      "date": "31.12.2019 21:05:29",
+      "description": "Test",
+      "id": 8
     }
   ]
 }

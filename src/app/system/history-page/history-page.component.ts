@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
+import * as moment from 'moment';
 
 import { CategoriesService } from '../shared/services/categories.service';
 import { EventsService } from '../shared/services/events.service';
@@ -16,6 +17,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   categories: Category[] = [];
   events;
+  filteredEvents;
 
   isLoaded = false;
   chartData = [];
@@ -28,6 +30,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     private eventsService: EventsService
     ) { }
 
+  
   ngOnInit() {
     this.sub1 = combineLatest(
       this.categoriesService.getCategory(),
@@ -36,17 +39,24 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         this.categories = data[0];
         this.events = data[1];
 
+        if(this.filteredEvents === undefined) this.setOriginalEvents();
+        
         this.calculateChartData();
 
         this.isLoaded = true;
     })
+    
+  }
+
+  private setOriginalEvents() {
+    this.filteredEvents = this.events.slice();
   }
 
   calculateChartData(): void {
       this.chartData = [];
 
       this.categories.forEach(cat => {
-        const dataEvents = this.events.filter( e => e.category === cat.id && e.type === 'outcome');
+        const dataEvents = this.filteredEvents.filter( e => e.category === cat.id && e.type === 'outcome');
         this.chartData.push({
           name: cat.name,
           value: dataEvents.reduce((total, event) => {
@@ -65,12 +75,35 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.toggleFilterVisibility(true);
   }
 
-    onFilterApply(filterData) {
-        console.log('ДАННЫЕ ИЗ МОДАЛЬНОГО ОКНА:', filterData);        
-    }
+  onFilterApply(filterData) {
+    this.toggleFilterVisibility(false);
+    this.setOriginalEvents();
+       
+    let startPeriod = moment().startOf(filterData.period).startOf('d');
+    let endPeriod = moment().endOf(filterData.period).endOf('d');
+    
+    if(filterData.period == 2019) {
+      startPeriod = moment().set( {'year': 2019, 'month': 0, 'date': 1, 'hour': 0, 'minute': 0} );
+      endPeriod = moment().set( {'year': 2019, 'month': 11, 'date': 31, 'hour': 23, 'minute': 59} );
+    }  
+
+    this.filteredEvents = this.filteredEvents
+      .filter((e) => filterData.types.indexOf(e.type) !== -1)
+      .filter((e) => filterData.categories.indexOf(e.category.toString()) !== -1)
+      .filter((e) => {
+        const momentDate = moment(e.date, 'DD.MM.YYYY HH:mm:ss');
+        return momentDate.isBetween(startPeriod, endPeriod)
+      })
+      
+      this.calculateChartData();     
+  }
 
     onFilterCancel() {
-      this.toggleFilterVisibility(false);
+      if(this.isFilterVisible === true) {
+        this.toggleFilterVisibility(false);
+        this.setOriginalEvents();
+        this.calculateChartData();
+      }
     }
 
   ngOnDestroy() {
