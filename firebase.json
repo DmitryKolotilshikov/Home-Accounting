@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist\\Home-accounting",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

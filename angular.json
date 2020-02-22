@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Home-accounting"
+    }
+  },
+  "defaultProject": "Home-accounting",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Title} from '@angular/platform-browser';
 
 import { UsersService } from 'src/app/shared/services/users.service';
 import { Message } from 'src/app/shared/models/message.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { filter } from 'rxjs/operators';
-import { User } from 'src/app/shared/models/user.model';
+
+import { fadeStateTrigger } from 'src/app/shared/aminations/fade.animation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
 
@@ -22,15 +24,20 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private title: Title
+    ) { 
+      title.setTitle('Вход в систему');
+    }
 
   ngOnInit() {
     this.message = new Message('danger', '');
-
+    
     this.route.queryParams.subscribe((params: Params) => {
       if(params['nowCanLogin']) {
         this.showMessage('Теперь вы можете зайти в систему', 'success')
+      } else if(params['accessDenied']) {
+        this.showMessage('Чтобы зайти в систему, нужно ввести логин и пароль', 'warning')
       }
    })
     

@@ -94,7 +94,11 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         const momentDate = moment(e.date, 'DD.MM.YYYY HH:mm:ss');
         return momentDate.isBetween(startPeriod, endPeriod)
       })
-      
+
+      if (this.filteredEvents.length === 0) {
+        this.setOriginalEvents();
+      }
+
       this.calculateChartData();     
   }
 

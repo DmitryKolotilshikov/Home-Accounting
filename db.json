@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 14000,
+    "value": 14250,
     "currency": "BYN"
   },
   "categories": [
@@ -98,6 +98,14 @@
       "date": "31.12.2019 21:05:29",
       "description": "Test",
       "id": 8
+    },
+    {
+      "type": "income",
+      "amount": 250,
+      "category": 3,
+      "date": "22.02.2020 20:38:56",
+      "description": "test with firebase",
+      "id": 9
     }
   ]
 }

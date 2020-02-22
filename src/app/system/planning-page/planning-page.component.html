@@ -3,8 +3,8 @@
         Страница планирования <span class="sparkline bar"></span>
     </h3>
 </div>
-<section class="section" *ngIf="!isLoaded">
-    Loading...
+<section class="section text-center" *ngIf="!isLoaded">
+    <app-loader></app-loader>
 </section>
 <section class="section" *ngIf="isLoaded">
     <div class="row">

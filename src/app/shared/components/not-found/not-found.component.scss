@@ -1,0 +1,28 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+
+    h1 {
+        color: red;
+    }
+    
+    button {
+        width: 250px;
+        height: 50px;
+        background-color: rgb(170, 170, 170);
+        border: none;
+        outline: none;
+
+        &:hover {
+            opacity: .7;
+        }
+        
+        a {
+            color: #fff;
+        }
+    }
+}
